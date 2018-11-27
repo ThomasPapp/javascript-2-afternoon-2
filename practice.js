@@ -17,7 +17,9 @@ var arr = [10,20,30];
   Return the first item in the given array.
 */
 
-//Code Here
+function first(arr) {
+  return arr[0];
+}
 
 
 
@@ -32,7 +34,9 @@ var arr = [40,50,60];
   Return the last item in the given array.
 */
 
-//Code Here
+function last(arr) {
+  return arr[arr.length - 1];
+}
 
 
 
@@ -47,7 +51,11 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
   Loop through the given array and alert every item in the array.
 */
 
-//Code Here
+function looper(family) {
+  for (let i = 0; i < family.length; i++) {
+    alert(family[i]);
+  }
+}
 
 
 
@@ -62,7 +70,11 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
   Loop through the given array backwards alerting every item in the array starting at the end.\
 */
 
-//Code Here
+function reversedLooper(letter) {
+  for (let i = letter.length - 1; i >= 0; i--) {
+    alert(letter[i]);
+  }
+}
 
 
 
@@ -77,7 +89,9 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
   Return an array that contains the even numbers from the nums array.
 */
 
-//Code Here
+function evenFinder(nums) {
+  return nums.filter(val => val % 2 == 0);
+}
 
 
 
@@ -105,7 +119,12 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
   Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) and the second item in the Array being the odds array (all the odd values from numbersArray).
 */
 
-//Code Here
+function divider(numbersArray) {
+  let evens = numbersArray.filter(val => val % 2 == 0);
+  let odds = numbersArray.filter(val => val % 2 != 0);
+
+  return [ evens, odds ];
+}
 
 
 
@@ -126,7 +145,10 @@ var getRandomArbitrary = function() {
   If it is, return true, if it's not, return false
 */
 
-//Code Here
+function finder(array) {
+  let rand = getRandomArbitrary();
+  return array.includes(rand);
+}
 
 
 
@@ -155,7 +177,28 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   addItem() --> [];
 */
 
-//Code Here
+function removeItem(myGroceryList, item) {
+  if (!myGroceryList || !item)
+    return [];
+
+  let index = myGroceryList.indexOf(item);
+  if (index > -1) {
+    myGroceryList.splice(index, 1);
+
+    // in the instance of duplicate elements
+    return removeItem(myGroceryList, item);
+  }
+
+  return myGroceryList;
+}
+
+function addItem(myGroceryList, item) {
+  if (!myGroceryList || !item)
+    return [];
+
+  myGroceryList.push(item);
+  return myGroceryList;
+}
 
 
 
@@ -165,7 +208,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 */
 
-//Code Here
+function maker() {
+  let nums = [];
+  for (let i = 1; i < 216; i++) {
+    nums.push(i);
+  }
+  return nums;
+}
 
 
 
@@ -181,7 +230,9 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 */
   
-//Code Here
+function addTen(numbers) {
+  return numbers.map(val => Number(val) + 10);
+}
 
 
 
@@ -206,7 +257,9 @@ for(var i = 0; i < num2; i++){
   Return the array which is longest.
 */
 
-//Code Here
+function longer(arr1, arr2) {
+  return arr1.length > arr2.length ? arr1 : arr2;
+}
 
 
 
@@ -218,7 +271,20 @@ for(var i = 0; i < num2; i++){
   Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
-//Code Here
+function both(arr1, arr2) {
+  let newArr = [];
+
+  let long = longer(arr1, arr2);
+  let short = arr1.length > arr2.length ? arr2 : arr1;
+
+  short.forEach(val => {
+    if (long.includes(val) && !newArr.includes(val)) {
+      newArr.push(val)
+    }
+  });
+
+  return newArr;
+}
 
 
 
@@ -258,7 +324,11 @@ var colt = {
   After that console.log the length of the Array and make sure that it's equal to 4. 
 */
 
-//Code Here
+devMountainEmployees.push(tyler);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
+console.log(devMountainEmployees.length);
 
 
 
@@ -267,7 +337,10 @@ var colt = {
   Loop through your devMountainEmployees until you find cahlan, then remove him from the array.
 */
 
-//Code Here
+let index = devMountainEmployees.indexOf(cahlan);
+if (index > -1) {
+  devMountainEmployees.splice(index, 1);
+}
 
 
 
@@ -279,7 +352,7 @@ var colt = {
   Create an empty array called users.
 */
 
-//Code Here
+let users = [];
 
 
 
@@ -300,7 +373,23 @@ var user1 = {
 
 //Code Here
 
+let user2 = {
+  name: "John Doe",
+  email: "doe.john@gmail.com",
+  password: "anon",
+  username: "John"
+}
 
+let user3 = {
+  name: "Mike",
+  email: "smith.smike@gmail.com",
+  password: "pass123",
+  username: "mike003"
+}
+
+users.push(user1)
+users.push(user2)
+users.push(user3)
 
 /*
   Now you have a very common data structure. 
@@ -312,7 +401,12 @@ var user1 = {
   Once you find the particular index he's located in, delete him from the array.
 */
 
-//Code Here
+for (let i = 0; i < users.length; i++) {
+  if (users[i].email == 'tylermcginnis33@gmail.com') {
+    users.splice(i, 1);
+    break;
+  }
+}
 
 
 
